@@ -28,8 +28,10 @@ export function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'glass-strong shadow-lg shadow-black/20' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+          scrolled 
+            ? 'bg-surface-900/80 backdrop-blur-md shadow-lg shadow-black/20 border-b border-white/10' 
+            : 'bg-transparent'
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,10 +88,12 @@ export function Navbar() {
             <motion.button
               onClick={() => setMenuOpen(!menuOpen)}
               whileTap={{ scale: 0.9 }}
-              className="md:hidden p-2 rounded-lg glass text-slate-300"
+              className={`md:hidden p-2 rounded-lg glass text-slate-300 transition-opacity ${
+                menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
+              }`}
               aria-label="Toggle menu"
             >
-              {menuOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
+              <HiMenuAlt3 size={22} />
             </motion.button>
           </div>
         </div>
@@ -111,7 +115,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 glass-strong border-l border-white/10 p-6 md:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-surface-900/95 backdrop-blur-lg border-l border-white/10 p-6 md:hidden"
             >
               <div className="flex justify-between items-center mb-10">
                 <span className="font-mono font-bold text-lg gradient-text">&lt;Dev /&gt;</span>

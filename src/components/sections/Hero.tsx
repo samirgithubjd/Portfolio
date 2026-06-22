@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, easeInOut } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
 import { ROLES } from '../../data';
-import my_image from '../../../public/my_image.jpg';
-import resume from '../../../public/samir_jadav_resume.pdf'
+import my_image from '/my_image.jpg?url';
+import resume from '/samir_jadav_resume.pdf?url';
 
 const SOCIAL_LINKS = [
     { icon: FiGithub, href: 'https://github.com/samirgithubjd', label: 'GitHub' },
